@@ -13,7 +13,7 @@ function build () {
     return `Hello ${name}!`
   })
 
-  app.post('/', async (req, res) => {
+  app.post('/test', async (req, res) => {
     const { name = 'World' } = req.body.name
     req.log.info({ name }, 'hello world!')
     return `Hello ${name}!`
