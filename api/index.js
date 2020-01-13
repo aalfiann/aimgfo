@@ -21,6 +21,24 @@ function build () {
   app.post('/generate-link', async (req, res) => {
     const { body } = req;
     if(body && body.url) {
+      if(Array.isArray(body.url)) {
+       var urltest = true;
+       for(var i =0; i< body.url.length;i++) {
+         if(!isValidURL(body.url[i].trim())) {
+           urltest = false;
+         }
+       }
+       if(urltest) {
+        var link = [];
+        for(var x=0; x<body.url.length;x++) {
+           link.push('https://imgfo.com/view?content='+encodeURIComponent(TextObfuscator.encode(Crypto.encode(body.url[x].trim()),3)));
+        }
+        return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:link}}
+       } else {
+        res.statusCode = 400;
+        return {statusCode:res.statusCode,message:'One of links has an invalid URL!',response:{}}
+       }
+      } else {
         var url = body.url.trim();
         if(isValidURL(url)) {
             var link = encodeURIComponent(TextObfuscator.encode(Crypto.encode(url),3));
@@ -29,6 +47,7 @@ function build () {
             res.statusCode = 400;
             return {statusCode:res.statusCode,message:'Invalid URL!',response:{}}
         }
+      }
     } else {
         res.statusCode = 400;
         return {statusCode:res.statusCode,message:'Bad Request!',response:{}}
