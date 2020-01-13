@@ -1,0 +1,25 @@
+{
+  "name": "aimgfo",
+  "version": "1.0.0",
+  "description": "API ImgFo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aalfiann/aimgfo.git"
+  },
+  "author": "M ABD AZIZ ALFIAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aalfiann/aimgfo/issues"
+  },
+  "homepage": "https://github.com/aalfiann/aimgfo#readme",
+  "dependencies": {
+    "fastify": "^2.11.0"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
