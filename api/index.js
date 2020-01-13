@@ -23,6 +23,7 @@ function build () {
     if(body && body.url) {
       if(Array.isArray(body.url)) {
        var urltest = true;
+       if(body.url.length <= 0) urltest = false;
        for(var i =0; i< body.url.length;i++) {
          if(!isValidURL(body.url[i].trim())) {
            urltest = false;
