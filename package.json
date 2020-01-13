@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/aalfiann/aimgfo#readme",
   "dependencies": {
-    "fastify": "^2.11.0"
+    "fastify": "^2.11.0",
+    "text-obfuscator": "^1.0.2"
   },
   "engines": {
     "node": "10.x"
