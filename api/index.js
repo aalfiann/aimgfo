@@ -14,9 +14,11 @@ function build () {
 //   })
 
   app.post('/', async (req, res) => {
-    const { name = 'World' } = req.body.name
-    req.log.info({ name }, 'hello world!')
-    return `Hello ${name}!`
+    // const { name = 'World' } = req.body.name
+    // req.log.info({ name }, 'hello world!')
+    // return `Hello ${name}!`
+    const { body } = req
+    return `Hello ${body.name}`
   })
 
   return app
