@@ -8,9 +8,7 @@ function build () {
   })
 
   app.get('/', async (req, res) => {
-    // const { name = 'World' } = req.query
-    // req.log.info({ name }, 'hello world!')
-    return {message:'Are you lost?'}
+    return {status:'success',code:res.statusCode,message:'Welcome to API ImgFo.'}
   })
 
   app.post('/', async (req, res) => {
