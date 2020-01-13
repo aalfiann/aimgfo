@@ -24,7 +24,7 @@ function build () {
         var url = body.url.trim();
         if(isValidURL(url)) {
             var link = encodeURIComponent(TextObfuscator.encode(Crypto.encode(url),3));
-            return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:link}}
+            return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:'https://imgfo.com/view?content='+link}}
         } else {
             res.statusCode = 400;
             return {statusCode:res.statusCode,message:'Invalid URL!',response:{}}
