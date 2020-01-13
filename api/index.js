@@ -7,11 +7,11 @@ function build () {
     logger: true
   })
 
-//   app.get('/', async (req, res) => {
-//     const { name = 'World' } = req.query
-//     req.log.info({ name }, 'hello world!')
-//     return `Hello ${name}!`
-//   })
+  app.get('/', async (req, res) => {
+    // const { name = 'World' } = req.query
+    // req.log.info({ name }, 'hello world!')
+    return {message:'Are you lost?'}
+  })
 
   app.post('/', async (req, res) => {
     // const { name = 'World' } = req.body.name
