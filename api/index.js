@@ -20,7 +20,7 @@ function build () {
 
   app.post('/generate-link', async (req, res) => {
     const { body } = req;
-    if(body.url) {
+    if(body && body.url) {
         var url = body.url.trim();
         if(isValidURL(url)) {
             var link = encodeURIComponent(TextObfuscator.encode(Crypto.encode(url),3));
