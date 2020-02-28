@@ -55,6 +55,18 @@ function build () {
     }
   })
 
+  app.post('/decode-content', async (req, res) => {
+    const { body } = req;
+    if(body && body.content) {
+      var hashed = decodeURIComponent(body.content);
+      var link = TextObfuscator.decode(hashed,3);
+      return {statusCode:res.statusCode,message:'Decode content successfully!',response:{link:link}}
+    } else {
+        res.statusCode = 400;
+        return {statusCode:res.statusCode,message:'Bad Request!',response:{}}
+    }
+  })
+
   return app
 }
 
