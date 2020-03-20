@@ -32,10 +32,12 @@ function build () {
        }
        if(urltest) {
         var link = [];
+        var embed = [];
         for(var x=0; x<body.url.length;x++) {
-           link.push('https://imgfo.com/view?content='+encodeURIComponent(TextObfuscator.encode(Crypto.encode(body.url[x].trim()),3)));
+           link.push('https://imgfo.com/view/?content='+encodeURIComponent(TextObfuscator.encode(Crypto.encode(body.url[x].trim()),3)));
+           embed.push('<iframe src="https://imgfo.com/embed/?content='+encodeURIComponent(TextObfuscator.encode(Crypto.encode(body.url[x].trim()),3)))+'&style=default&theme=dark" width="100%" height="600px" frameborder="0" scrolling="yes" allowfullscreen="true"></iframe>';
         }
-        return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:link}}
+        return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:link,embed:embed}}
        } else {
         res.statusCode = 400;
         return {statusCode:res.statusCode,message:'One of links has an invalid URL!',response:{}}
