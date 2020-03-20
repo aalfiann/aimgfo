@@ -46,7 +46,7 @@ function build () {
         var url = body.url.trim();
         if(isValidURL(url)) {
             var link = encodeURIComponent(TextObfuscator.encode(Crypto.encode(url),3));
-            return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:'https://imgfo.com/view?content='+link}}
+            return {statusCode:res.statusCode,message:'Generate link successfully!',response:{link:'https://imgfo.com/view/?content='+link,embed:'<iframe src="https://imgfo.com/embed/?content='+link+'&style=default&theme=dark" width="100%" height="600px" frameborder="0" scrolling="yes" allowfullscreen="true"></iframe>'}}
         } else {
             res.statusCode = 400;
             return {statusCode:res.statusCode,message:'Invalid URL!',response:{}}
